@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-assignment-web-ingress
+spec:
+  rules:
+  - host: frontend-assignment-web.test.tuik.gov.tr
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-assignment-web
+            port:
+              number: 80

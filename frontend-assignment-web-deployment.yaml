@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-assignment-web
+  labels:
+    app: frontend-assignment-web
+spec:
+  selector:
+    matchLabels:
+      app: frontend-assignment-web
+  template:
+    metadata:
+      labels:
+        app: frontend-assignment-web
+    spec:
+      containers:
+      - name: frontend-assignment-web
+        image: hasantahsinakin/frontend-assignment_web:v1
+        ports:
+        - containerPort: 3000

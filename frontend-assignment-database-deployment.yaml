@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-assignment-database
+  labels:
+    app: frontend-assignment-database
+spec:
+  selector:
+    matchLabels:
+      app: frontend-assignment-database
+  template:
+    metadata:
+      labels:
+        app: frontend-assignment-database
+    spec:
+      containers:
+      - name: frontend-assignment-database
+        image: hasantahsinakin/frontend-assignment_database:v1
+        ports:
+        - containerPort: 5432
+        envFrom:
+          - configMapRef:
+              name: frontend-assignment-database-env
+        volumeMounts:
+        - name: frontend-assignment-database
+          mountPath: /docker-entrypoint-initdb.d/docker_postgres_init.sql
+          subPath: docker-postgres-init-sql-configmap
+      volumes:
+      - name: frontend-assignment-database
+        configMap:
+          name: frontend-assignment-database-env
