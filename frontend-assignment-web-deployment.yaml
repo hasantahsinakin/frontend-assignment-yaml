@@ -18,3 +18,14 @@ spec:
         image: hasantahsinakin/frontend-assignment_web:v1
         ports:
         - containerPort: 3000
+        env:
+        - name: POSTGRES_HOST
+          value: frontend-assignment-database
+        - name: POSTGRES_USER
+          valueFrom:
+            configMapRef:
+              name: frontend-assignment-database-env
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapRef:
+              name: frontend-assignment-database-env
