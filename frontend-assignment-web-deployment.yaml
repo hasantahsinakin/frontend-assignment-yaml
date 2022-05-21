@@ -23,9 +23,11 @@ spec:
           value: frontend-assignment-database
         - name: POSTGRES_USER
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: frontend-assignment-database-env
+              key: POSTGRES_USER
         - name: POSTGRES_PASSWORD
           valueFrom:
-            configMapRef:
+            configMapKeyRef:
               name: frontend-assignment-database-env
+              key: POSTGRES_PASSWORD
