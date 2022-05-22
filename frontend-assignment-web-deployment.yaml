@@ -21,7 +21,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/sh", "-c", "/bin/rails db:migrate RAILS_ENV=development"]
+              command: ["/bin/sh", "-c", "rails db:migrate RAILS_ENV=development"]
         env:
         - name: POSTGRES_HOST
           value: database
