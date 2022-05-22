@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-assignment-web
+  name: web
   labels:
-    app: frontend-assignment-web
+    app: web
 spec:
   selector:
     matchLabels:
-      app: frontend-assignment-web
+      app: web
   template:
     metadata:
       labels:
-        app: frontend-assignment-web
+        app: web
     spec:
       containers:
-      - name: frontend-assignment-web
+      - name: web
         image: hasantahsinakin/frontend-assignment_web:v1
         ports:
         - containerPort: 3000
         env:
         - name: POSTGRES_HOST
-          value: frontend-assignment-database
+          value: database
         - name: POSTGRES_USER
           valueFrom:
             configMapKeyRef:
-              name: frontend-assignment-database-env
+              name: database-env
               key: POSTGRES_USER
         - name: POSTGRES_PASSWORD
           valueFrom:
             configMapKeyRef:
-              name: frontend-assignment-database-env
+              name: database-env
               key: POSTGRES_PASSWORD
