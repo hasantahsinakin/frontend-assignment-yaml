@@ -35,3 +35,5 @@ spec:
             configMapKeyRef:
               name: database-env
               key: POSTGRES_PASSWORD
+        - name: ELASTICSEARCH_URL
+          value: http://elasticsearch:9200
